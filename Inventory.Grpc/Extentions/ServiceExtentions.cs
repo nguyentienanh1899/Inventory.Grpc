@@ -4,7 +4,7 @@ using Inventory.Grpc.Repositories.Interfaces;
 using MongoDB.Driver;
 using Shared.Configurations;
 
-namespace Inventory.Grpc.Services
+namespace Inventory.Grpc.Extentions
 {
     public static class ServiceExtentions
     {
@@ -23,14 +23,15 @@ namespace Inventory.Grpc.Services
         public static void ConfigureMongoDbClient(this IServiceCollection services)
         {
             services.AddSingleton<IMongoClient>(
-                new MongoClient(GetMongoConnectionString(services)))
+                new MongoClient(services.GetMongoConnectionString()))
                 .AddScoped(x => x.GetService<IMongoClient>()?.StartSession());
         }
 
         private static string GetMongoConnectionString(this IServiceCollection services)
         {
             var settings = services.GetOptions<MongoDbSettings>(nameof(MongoDbSettings));
-            if(settings == null || string.IsNullOrEmpty(settings.ConnectionString)) {
+            if (settings == null || string.IsNullOrEmpty(settings.ConnectionString))
+            {
                 throw new ArgumentNullException("DatabaseSettings is not configured");
             }
 

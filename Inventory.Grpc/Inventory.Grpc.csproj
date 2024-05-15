@@ -12,23 +12,6 @@
 		<PackageReference Include="Serilog.Formatting.Compact" Version="2.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Extentions\" />
-	</ItemGroup>
-	<ItemGroup>
-		<Reference Include="Common.Logging">
-			<HintPath>..\..\Implement_Microservices\src\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.dll</HintPath>
-		</Reference>
-		<Reference Include="Contracts">
-			<HintPath>..\..\Implement_Microservices\src\BuildingBlocks\Contracts\obj\Debug\net6.0\Contracts.dll</HintPath>
-		</Reference>
-		<Reference Include="Infrastructure">
-			<HintPath>..\..\Implement_Microservices\src\BuildingBlocks\Infrastructure\obj\Debug\net6.0\Infrastructure.dll</HintPath>
-		</Reference>
-		<Reference Include="Shared">
-			<HintPath>..\..\Implement_Microservices\src\BuildingBlocks\Shared\obj\Debug\net6.0\Shared.dll</HintPath>
-		</Reference>
-	</ItemGroup>
-	<ItemGroup>
 		<None Remove="Protos\stock.proto" />
 		<Protobuf Include="Protos\stock.proto">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -40,5 +23,19 @@
 			<OutputDir>obj\Debug/net6.0/</OutputDir>
 			<Generator>MSBuild: Compile</Generator>
 		</Protobuf>
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="Common.Logging">
+	    <HintPath>..\..\aspnetcore-microservices\src\BuildingBlocks\Common.Logging\obj\Debug\net6.0\Common.Logging.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Contracts">
+	    <HintPath>..\..\aspnetcore-microservices\src\BuildingBlocks\Contracts\obj\Debug\net6.0\Contracts.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Infrastructure">
+	    <HintPath>..\..\aspnetcore-microservices\src\BuildingBlocks\Infrastructure\obj\Debug\net6.0\Infrastructure.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Shared">
+	    <HintPath>..\..\aspnetcore-microservices\src\BuildingBlocks\Shared\obj\Debug\net6.0\Shared.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 </Project>
